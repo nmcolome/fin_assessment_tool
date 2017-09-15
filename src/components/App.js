@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './styles/App.css';
+import Sidebar from './Sidebar'
 
 class App extends Component {
   constructor() {
@@ -25,9 +26,9 @@ class App extends Component {
   //   }
   // }
 
-  changeView(text) {
+  changeView(event) {
     this.setState({
-      view: text
+      view: event.target.value
     })
   }
 
@@ -36,7 +37,7 @@ class App extends Component {
 
     return (
       <div className="App">
-        {/* <Sidebar changeView={this.changeView}/> */}
+        <Sidebar changeView={this.changeView} view={this.state.view}/>
         {/* {view} */}
       </div>
     );

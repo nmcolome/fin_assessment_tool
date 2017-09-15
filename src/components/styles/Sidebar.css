@@ -1,0 +1,42 @@
+.Sidebar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 250px;
+  height: 100vh;
+  background-color: blue;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.menu {
+  color: white;
+  font-size: 28px;
+}
+
+.menu-nav {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.menu-tag {
+  width: 100%;
+  margin: 10px 0;
+  padding: 10px 0;
+  font-size: 30px;
+  background-color: transparent;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+.menu-tag:hover {
+  background-color: yellowgreen;
+}
+
+.active-tag {
+  background-color: yellowgreen;
+}
