@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './styles/App.css';
 import Sidebar from './Sidebar'
 import ProfitAndLoss from './ProfitAndLoss'
+import Dashboard from './Dashboard'
 
 class App extends Component {
   constructor() {
@@ -16,14 +17,14 @@ class App extends Component {
     switch(view) {
       case 'profit': 
         return <ProfitAndLoss />
-  //     case 'dashboard':
-  //       return <Dashboard />
+      case 'dashboard':
+        return <Dashboard />
   //     case 'top':
   //       return <TopCustomers />
   //     case 'help':
   //       return <Help />
-  //     default:
-  //       return <ProfitAndLoss />
+      default:
+        return <ProfitAndLoss />
     }
   }
 
