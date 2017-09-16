@@ -51,6 +51,7 @@ class ProfitAndLoss extends Component {
     })
     return (
       <div className='profit'>
+        <h1>Profit And Loss Statement</h1>
         <SimpleLineChart measurements={this.state.measurements} firstLine={this.state.firstLine} secondLine={this.state.secondLine}/>
         <select value={this.state.firstLine} name="firstLine" onChange={this.handleOnChange}>
           <option value="sales">Sales</option>

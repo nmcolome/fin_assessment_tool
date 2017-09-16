@@ -4,8 +4,8 @@ import {LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend} from 'rec
 
 const SimpleLineChart = ({measurements, firstLine, secondLine}) => {
   return (
-    <LineChart width={600} height={300} data={measurements}
-          margin={{top: 5, right: 30, left: 20, bottom: 5}}>
+    <LineChart width={1100} height={300} data={measurements}
+          margin={{top: 20, right: 30, left: 100, bottom: 10}}>
       <XAxis dataKey="date"/>
       <YAxis/>
       <CartesianGrid strokeDasharray="3 3"/>
