@@ -9,7 +9,8 @@ class ProfitAndLoss extends Component {
     super()
     this.state = {
       measurements: [],
-      firstLine: 'sales'
+      firstLine: 'sales',
+      secondLine: 'discount'
     }
     this.handleOnChange = this.handleOnChange.bind(this)
   }
@@ -27,14 +28,14 @@ class ProfitAndLoss extends Component {
     })
     .then(data => {
       const measurements = data.map(d => {
-        d.date = moment(data.date).format("MMM YY")
+        d.date = moment(d.date).format("MMM YY")
         d.sales = parseInt(d.sales)
-        d.discount = parseInt(d.discount)
+        d.discount = parseInt(-d.discount)
         d.net_sales = parseInt(d.net_sales)
-        d.cogs = parseInt(d.cogs)
-        d.sales = parseInt(d.gross_profit)
-        d.sales = parseInt(d.op_expense)
-        d.sales = parseInt(d.op_income)
+        d.cogs = parseInt(-d.cogs)
+        d.gross_profit = parseInt(d.gross_profit)
+        d.op_expense = parseInt(-d.op_expense)
+        d.net_profit = parseInt(d.net_profit)
         return d
       })
       this.setState({ measurements })
@@ -50,7 +51,7 @@ class ProfitAndLoss extends Component {
     })
     return (
       <div className='profit'>
-        <SimpleLineChart measurements={this.state.measurements} firstLine={this.state.firstLine}/>
+        <SimpleLineChart measurements={this.state.measurements} firstLine={this.state.firstLine} secondLine={this.state.secondLine}/>
         <select value={this.state.firstLine} name="firstLine" onChange={this.handleOnChange}>
           <option value="sales">Sales</option>
           <option value="discount">Discount</option>
@@ -58,12 +59,21 @@ class ProfitAndLoss extends Component {
           <option value="cogs">Cost of Goods Sold</option>
           <option value="gross_profit">Gross Profit</option>
           <option value="op_expense">Operating Expense</option>
-          <option value="op_income">Net Profit</option>
+          <option value="net_profit">Net Profit</option>
+        </select>
+        <select value={this.state.secondLine} name="secondLine" onChange={this.handleOnChange}>
+          <option value="sales">Sales</option>
+          <option value="discount">Discount</option>
+          <option value="net_sales">Net Sales</option>
+          <option value="cogs">Cost of Goods Sold</option>
+          <option value="gross_profit">Gross Profit</option>
+          <option value="op_expense">Operating Expense</option>
+          <option value="net_profit">Net Profit</option>
         </select>
         <section className='data-table'>
         <section className='data-column'>
           <articles className='data-header'>Month</articles>
-          <articles className='data-header'>Gross Sales</articles>
+          <articles className='data-header'>Sales</articles>
           <articles className='data-header'>Discounts</articles>
           <articles className='data-header'>Net Sales</articles>
           <articles className='data-header'>COGS</articles>
