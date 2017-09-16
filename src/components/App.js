@@ -1,20 +1,21 @@
 import React, { Component } from 'react';
 import './styles/App.css';
 import Sidebar from './Sidebar'
+import ProfitAndLoss from './ProfitAndLoss'
 
 class App extends Component {
   constructor() {
     super()
     this.state = {
-      view: ''
+      view: 'profit'
     }
     this.changeView = this.changeView.bind(this)
   }
 
-  // displayView(view) {
-  //   switch(view) {
-  //     case 'profit': 
-  //       return <ProfitAndLoss />
+  displayView(view) {
+    switch(view) {
+      case 'profit': 
+        return <ProfitAndLoss />
   //     case 'dashboard':
   //       return <Dashboard />
   //     case 'top':
@@ -23,8 +24,8 @@ class App extends Component {
   //       return <Help />
   //     default:
   //       return <ProfitAndLoss />
-  //   }
-  // }
+    }
+  }
 
   changeView(event) {
     this.setState({
@@ -33,12 +34,12 @@ class App extends Component {
   }
 
   render() {
-    // const view = this.displayView(this.state.view)
+    const view = this.displayView(this.state.view)
 
     return (
       <div className="App">
         <Sidebar changeView={this.changeView} view={this.state.view}/>
-        {/* {view} */}
+        {view}
       </div>
     );
   }
