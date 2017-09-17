@@ -29,13 +29,13 @@ class ProfitAndLoss extends Component {
     .then(data => {
       const measurements = data.map(d => {
         d.date = moment(d.date).format("MMM YY")
-        d.sales = parseInt(d.sales)
-        d.discount = parseInt(-d.discount)
-        d.net_sales = parseInt(d.net_sales)
-        d.cogs = parseInt(-d.cogs)
-        d.gross_profit = parseInt(d.gross_profit)
-        d.op_expense = parseInt(-d.op_expense)
-        d.net_profit = parseInt(d.net_profit)
+        d.sales = parseFloat(d.sales)
+        d.discount = parseFloat(-d.discount)
+        d.net_sales = parseFloat(d.net_sales)
+        d.cogs = parseFloat(-d.cogs)
+        d.gross_profit = parseFloat(d.gross_profit)
+        d.op_expense = parseFloat(-d.op_expense)
+        d.net_profit = parseFloat(d.net_profit)
         return d
       })
       this.setState({ measurements })

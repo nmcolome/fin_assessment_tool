@@ -1,0 +1,9 @@
+.data-cell {
+  display: grid;
+  grid-gap: 5px;
+  grid-template-rows: 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
+  grid-auto-flow: column;
+  background-color: #ccc;
+  color: #444;
+}
