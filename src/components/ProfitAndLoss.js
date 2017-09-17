@@ -3,6 +3,7 @@ import './styles/ProfitAndLoss.css'
 import TableColumn from './TableColumn'
 import SimpleLineChart from './SimpleLineChart'
 import moment from 'moment'
+import {getKey} from '../helper'
 
 class ProfitAndLoss extends Component {
   constructor() {
@@ -47,7 +48,7 @@ class ProfitAndLoss extends Component {
 
   render() {
     const column_data = this.state.measurements.map(a => {
-      return <TableColumn data={a}/>
+      return <TableColumn key={getKey()} data={a}/>
     })
     return (
       <div className='profit'>

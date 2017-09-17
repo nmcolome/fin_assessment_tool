@@ -7,7 +7,7 @@
 .grid-container {
   display: flex;
   /* flex-direction: column; */
-  flex-wrap: wrap;
+  /* flex-wrap: wrap; */
   /* grid-gap: 5px; */
   /* grid-template-rows: repeat(10, 1fr);
   grid-template-columns: 1fr;
@@ -17,8 +17,18 @@
   color: #444;
 }
 
+.grid-column {
+  display: flex;
+  width: 600px;
+}
+
 .vertical-header {
-  height: 61px;
+  height: 53px;
+  margin: 2px;
+}
+
+.space {
+  height: 28px;
 }
 
 .grid-item {
@@ -26,5 +36,5 @@
   color: #fff;
   border-radius: 5px;
   padding: 5px;
-  font-size: 100%;
+  font-size: 90%;
 }

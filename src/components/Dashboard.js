@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import './styles/Dashboard.css'
 // import DataCell from './DataCell'
 import CategoryBlock from './CategoryBlock'
+import ClusterColumn from './ClusterColumn'
 import {getKey} from '../helper'
 
 class Dashboard extends Component {
@@ -15,22 +16,21 @@ class Dashboard extends Component {
   }
 
   componentDidMount() {
-    // Promise.all
-    fetch('http://localhost:3000/api/v1/dashboard_by_product')
+    fetch('http://localhost:3000/api/v1/dashboard')
     .then(response => {
       return response.json()
     })
     .then(data => {
-      const categories_obj = data.reduce((obj, d) => {
-        const {products, categories, net_sales_curr_year, segment_contribution, net_sales_growth, discount_percent} = d
-        if(!obj[categories]) {
-          obj[categories] = []
+      const clusters_obj = data.reduce((obj, d) => {
+        const {clusters, products, categories, net_sales_curr_year, segment_contribution, net_sales_prev_year, discounts_17} = d
+        if(!obj[clusters]) {
+          obj[clusters] = []
         }
-        obj[categories].push({products, net_sales_curr_year, segment_contribution, net_sales_growth, discount_percent})
+        obj[clusters].push({categories, products, net_sales_curr_year, segment_contribution, net_sales_prev_year, discounts_17})
         return obj
       }, {})
       this.setState({
-        indicators: categories_obj
+        indicators: clusters_obj,
       })
     })
     .catch(error => {
@@ -45,8 +45,13 @@ class Dashboard extends Component {
   }
 
   render() {
-    const category_blocks = Object.keys(this.state.indicators).map(cat => {
-      return <CategoryBlock key={getKey()} catData={this.state.indicators[cat]} name={cat}/>
+    const cluster_columns = Object.keys(this.state.indicators).map(cluster => {
+      return (
+        <div className="grid-clusters">
+          <div className="grid-item">{cluster}</div>
+          <ClusterColumn key={getKey()} clusterData={this.state.indicators[cluster]}/>
+        </div>
+      )
     })
     return (
       <div className="dashboard">
@@ -61,8 +66,9 @@ class Dashboard extends Component {
           <option value="Region6">Region6</option>
         </select>
         <div className="grid-container">
-          <div>
-            <div className="grid-item">All</div>
+          <div className="grid-header">
+            <div className="space"></div>
+            <div className="vertical-header grid-item">All</div>
             <div className="vertical-header grid-item">Category1</div>
             <div className="vertical-header grid-item">Product1</div>
             <div className="vertical-header grid-item">Product3</div>
@@ -72,17 +78,13 @@ class Dashboard extends Component {
             <div className="vertical-header grid-item">Product4</div>
             <div className="vertical-header grid-item">Product5</div>
           </div>
-          <div>
+          <div className="grid-one">
             <div className="grid-item">{this.state.region}</div>
-            {category_blocks}
+            {/* <CategoryBlock key={getKey()} catData={this.state.global_indicators}/> */}
           </div>
-          <div>
-            <div className="grid-item">ClientCluster1</div>
+          <div className="grid-column">
+            {cluster_columns}
           </div>
-          {/* <div className="grid-item">ClientCluster2</div>
-          <div className="grid-item">ClientCluster3</div>
-          <div className="grid-item">ClientCluster4</div>
-          <div className="grid-item">ClientCluster5</div> */}
         </div>
       </div>
     )
