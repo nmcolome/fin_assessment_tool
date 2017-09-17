@@ -11,10 +11,10 @@ const FirstColumn = ({firstColData}) => {
       if(!obj[d.products]) {
         obj[d.products] = {net_sales_curr_year: 0, net_sales_prev_year: 0, segment_contribution: 0, discounts_17:0}
       }
-      obj[d.products].net_sales_curr_year += parseFloat(d.net_sales_curr_year)
-      obj[d.products].net_sales_prev_year += parseFloat(d.net_sales_prev_year)
-      obj[d.products].segment_contribution += parseFloat(d.segment_contribution)
-      obj[d.products].discounts_17 += parseFloat(d.discounts_17)
+      obj[d.products].net_sales_curr_year += +(d.net_sales_curr_year)
+      obj[d.products].net_sales_prev_year += +(d.net_sales_prev_year)
+      obj[d.products].segment_contribution += +(d.segment_contribution)
+      obj[d.products].discounts_17 += +(d.discounts_17)
       return obj
     }, {})
     object[category] = consolidatedProd
