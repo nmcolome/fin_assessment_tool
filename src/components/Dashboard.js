@@ -10,14 +10,23 @@ class Dashboard extends Component {
     super()
     this.state = {
       indicators: [],
-      region: 'All Regions',
+      region: 'All',
       global_indicators: []
     }
     this.handleOnChange = this.handleOnChange.bind(this)
+    this.fetchStuff = this.fetchStuff.bind(this)
   }
 
-  componentDidMount() {
-    fetch('http://localhost:3000/api/v1/dashboard')
+  path(string) {
+    if(string === 'All') {
+      return 'http://localhost:3000/api/v1/dashboard'
+    } else {
+      return `http://localhost:3000/api/v1/dashboard?region=${string}`
+    }
+  }
+
+  fetchStuff(path) {
+    fetch(path)
     .then(response => {
       return response.json()
     })
@@ -50,7 +59,13 @@ class Dashboard extends Component {
     })
   }
 
+  componentDidMount() {
+    this.fetchStuff('http://localhost:3000/api/v1/dashboard')
+  }
+
   handleOnChange(event) {
+    const path = this.path(event.target.value)
+    this.fetchStuff(path)
     this.setState({
       region: event.target.value
     })
@@ -69,7 +84,7 @@ class Dashboard extends Component {
       <div className="dashboard">
         <h1>Dashboard</h1>
         <select name="region" onChange={this.handleOnChange}>
-          <option value="All Regions">All</option>
+          <option value="All">All</option>
           <option value="Region1">Region1</option>
           <option value="Region2">Region2</option>
           <option value="Region3">Region3</option>
