@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import './styles/Dashboard.css'
-// import DataCell from './DataCell'
+import FirstColumn from './FirstColumn'
 import CategoryBlock from './CategoryBlock'
 import ClusterColumn from './ClusterColumn'
 import {getKey} from '../helper'
@@ -11,6 +11,7 @@ class Dashboard extends Component {
     this.state = {
       indicators: [],
       region: 'All Regions',
+      global_indicators: []
     }
     this.handleOnChange = this.handleOnChange.bind(this)
   }
@@ -29,8 +30,19 @@ class Dashboard extends Component {
         obj[clusters].push({categories, products, net_sales_curr_year, segment_contribution, net_sales_prev_year, discounts_17})
         return obj
       }, {})
+
+      const region_obj = data.reduce((obj, d) => {
+        const {clusters, products, categories, net_sales_curr_year, segment_contribution, net_sales_prev_year, discounts_17} = d
+        if(!obj[categories]) {
+          obj[categories] = []
+        }
+        obj[categories].push({products, net_sales_curr_year, segment_contribution, net_sales_prev_year, discounts_17})
+        return obj
+      }, {})
+
       this.setState({
         indicators: clusters_obj,
+        global_indicators: region_obj
       })
     })
     .catch(error => {
@@ -80,7 +92,7 @@ class Dashboard extends Component {
           </div>
           <div className="grid-one">
             <div className="grid-item">{this.state.region}</div>
-            {/* <CategoryBlock key={getKey()} catData={this.state.global_indicators}/> */}
+            <FirstColumn firstColData={this.state.global_indicators}/>
           </div>
           <div className="grid-column">
             {cluster_columns}
