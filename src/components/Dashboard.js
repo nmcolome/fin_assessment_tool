@@ -6,7 +6,7 @@ class Dashboard extends Component {
     super()
     this.state = {
       indicators: [],
-      region: 'all'
+      region: 'All'
     }
     this.handleOnChange = this.handleOnChange.bind(this)
   }
@@ -45,6 +45,31 @@ class Dashboard extends Component {
           <option value="Region5">Region5</option>
           <option value="Region6">Region6</option>
         </select>
+        <div className="grid-container">
+          <div className="grid-item"></div>
+          <div className="grid-item">All</div>
+          <div className="grid-item">Category1</div>
+          <div className="grid-item">Product1</div>
+          <div className="grid-item">Product3</div>
+          <div className="grid-item">Category2</div>
+          <div className="grid-item">Product2</div>
+          <div className="grid-item">Category3</div>
+          <div className="grid-item">Product4</div>
+          <div className="grid-item">Product5</div>
+          <div className="grid-item">Client1</div>
+          <div className="grid-item data-cell">
+            <div className="grid-item">TO</div>
+            <div className="grid-item">Contribution</div>
+            <div className="grid-item">Growth%</div>
+            <div className="grid-item">TMI%</div>
+          </div>
+            <div className="grid-item data-cell">
+            <div className="grid-item">TO</div>
+            <div className="grid-item">Contribution</div>
+            <div className="grid-item">Growth%</div>
+            <div className="grid-item">TMI%</div>
+          </div>
+        </div>
       </div>
     )
   }

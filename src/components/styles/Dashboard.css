@@ -3,3 +3,32 @@
   background-color: #efefef;
   width: 80%;
 }
+
+.grid-container {
+  display: grid;
+  grid-gap: 10px;
+  grid-template-rows: repeat(10, 1fr);
+  grid-template-columns: 1fr;
+  grid-auto-flow: column;
+  grid-auto-columns: 1fr;
+  background-color: #fff;
+  color: #444;
+}
+
+.grid-item {
+  background-color: #444;
+  color: #fff;
+  border-radius: 5px;
+  padding: 5px;
+  font-size: 100%;
+}
+
+.data-cell {
+  display: grid;
+  grid-gap: 10px;
+  grid-template-rows: 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
+  grid-auto-flow: column;
+  background-color: #ccc;
+  color: #444;
+}
