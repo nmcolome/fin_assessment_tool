@@ -25,8 +25,36 @@ const FirstColumn = ({firstColData}) => {
     return <GlobalCat key={getKey()} gCatData={consolidatedCats[category]}/>
   })
 
+  const global = Object.keys(consolidatedCats).reduce((object, category) => {
+    const globalCat = Object.keys(consolidatedCats[category]).reduce((obj,d) => {
+      obj.net_sales_curr_year += +consolidatedCats[category][d].net_sales_curr_year
+      obj.segment_contribution += +consolidatedCats[category][d].segment_contribution
+      obj.net_sales_prev_year += +consolidatedCats[category][d].net_sales_prev_year
+      obj.discounts_17 += +consolidatedCats[category][d].discounts_17
+      return obj
+    }, {
+      net_sales_curr_year: 0,
+      segment_contribution: 0,
+      net_sales_prev_year: 0,
+      discounts_17: 0
+    })
+    object.net_sales_curr_year += +globalCat.net_sales_curr_year
+    object.segment_contribution += +globalCat.segment_contribution
+    object.net_sales_prev_year += +globalCat.net_sales_prev_year
+    object.discounts_17 += +globalCat.discounts_17
+    return object
+  }, {
+    net_sales_curr_year: 0,
+    segment_contribution: 0,
+    net_sales_prev_year: 0,
+    discounts_17: 0
+  })
+
   return (
-    <div>{global_categories}</div>
+    <div>
+      <DataCell prodData={global}/>
+      <div>{global_categories}</div>
+    </div>
   )
 }
 
