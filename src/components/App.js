@@ -4,12 +4,13 @@ import Sidebar from './Sidebar'
 import ProfitAndLoss from './ProfitAndLoss'
 import Dashboard from './Dashboard'
 import TopCustomers from './TopCustomers'
+import Help from './Help'
 
 class App extends Component {
   constructor() {
     super()
     this.state = {
-      view: 'top'
+      view: 'profit'
     }
     this.changeView = this.changeView.bind(this)
   }
@@ -22,8 +23,8 @@ class App extends Component {
         return <Dashboard />
       case 'top':
         return <TopCustomers />
-  //     case 'help':
-  //       return <Help />
+      case 'help':
+        return <Help />
       default:
         return <ProfitAndLoss />
     }
