@@ -9,7 +9,7 @@ const Sidebar = ({changeView, view}) => {
   return (
     <aside className="Sidebar">
       <div className="menu">
-        <h1>Menu</h1>
+        <h2>Menu</h2>
       </div>
       <div className="menu-nav">
         <button className={changeClass(view, 'profit')} value="profit" onClick={changeView}>Profit And Loss Statement</button>

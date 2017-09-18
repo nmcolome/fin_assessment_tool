@@ -6,15 +6,6 @@
 
 .grid-container {
   display: flex;
-  /* flex-direction: column; */
-  /* flex-wrap: wrap; */
-  /* grid-gap: 5px; */
-  /* grid-template-rows: repeat(10, 1fr);
-  grid-template-columns: 1fr;
-  grid-auto-flow: column; */
-  /* grid-auto-columns: 1fr; */
-  background-color: #fff;
-  color: #444;
 }
 
 .grid-column {
@@ -23,8 +14,8 @@
 }
 
 .vertical-header {
-  height: 53px;
-  margin: 2px;
+  height: 57px;
+  margin-bottom: 3px;
 }
 
 .space {
@@ -32,9 +23,9 @@
 }
 
 .grid-item {
-  background-color: #444;
+  background-color: rgb(142, 140, 140);
   color: #fff;
   border-radius: 5px;
   padding: 5px;
-  font-size: 90%;
+  font-size: 95%;
 }

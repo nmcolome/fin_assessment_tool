@@ -1,9 +1,5 @@
 .App {
   display: flex;
-  background-color: pink;
+  background-color: #EFEFEF;
   height: 100vh;
 }
-
-/* * {
-  border: 1px solid red;
-} */
