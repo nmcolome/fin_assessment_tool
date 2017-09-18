@@ -36,5 +36,14 @@
 h1 {
   text-align: center;
   margin: 5px;
-  margin-right: 500px;
+  margin-right: 450px;
+}
+
+.graph-selection {
+  text-align: center;
+  margin-right: 400px;
+}
+
+.graph-selection P {
+  display: inline;
 }

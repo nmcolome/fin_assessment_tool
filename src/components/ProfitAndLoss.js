@@ -54,24 +54,27 @@ class ProfitAndLoss extends Component {
       <div className='profit'>
         <h1>Profit And Loss Statement</h1>
         <SimpleLineChart measurements={this.state.measurements} firstLine={this.state.firstLine} secondLine={this.state.secondLine}/>
-        <select value={this.state.firstLine} name="firstLine" onChange={this.handleOnChange}>
-          <option value="sales">Sales</option>
-          <option value="discount">Discount</option>
-          <option value="net_sales">Net Sales</option>
-          <option value="cogs">Cost of Goods Sold</option>
-          <option value="gross_profit">Gross Profit</option>
-          <option value="op_expense">Operating Expense</option>
-          <option value="net_profit">Net Profit</option>
-        </select>
-        <select value={this.state.secondLine} name="secondLine" onChange={this.handleOnChange}>
-          <option value="sales">Sales</option>
-          <option value="discount">Discount</option>
-          <option value="net_sales">Net Sales</option>
-          <option value="cogs">Cost of Goods Sold</option>
-          <option value="gross_profit">Gross Profit</option>
-          <option value="op_expense">Operating Expense</option>
-          <option value="net_profit">Net Profit</option>
-        </select>
+        <div className='graph-selection'>
+          <p>Compare measurements: </p>
+          <select value={this.state.firstLine} name="firstLine" onChange={this.handleOnChange}>
+            <option value="sales">Sales</option>
+            <option value="discount">Discount</option>
+            <option value="net_sales">Net Sales</option>
+            <option value="cogs">Cost of Goods Sold</option>
+            <option value="gross_profit">Gross Profit</option>
+            <option value="op_expense">Operating Expense</option>
+            <option value="net_profit">Net Profit</option>
+          </select>
+          <select value={this.state.secondLine} name="secondLine" onChange={this.handleOnChange}>
+            <option value="sales">Sales</option>
+            <option value="discount">Discount</option>
+            <option value="net_sales">Net Sales</option>
+            <option value="cogs">Cost of Goods Sold</option>
+            <option value="gross_profit">Gross Profit</option>
+            <option value="op_expense">Operating Expense</option>
+            <option value="net_profit">Net Profit</option>
+          </select>
+        </div>
         <section className='data-table'>
         <section className='data-column'>
           <articles className='data-header'>Month</articles>

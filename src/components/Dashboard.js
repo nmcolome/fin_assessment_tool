@@ -83,7 +83,7 @@ class Dashboard extends Component {
     return (
       <div className="dashboard">
         <h1>Dashboard</h1>
-        <select name="region" onChange={this.handleOnChange}>
+        Select Region: <select name="region" onChange={this.handleOnChange}>
           <option value="All">All</option>
           <option value="Region1">Region1</option>
           <option value="Region2">Region2</option>
