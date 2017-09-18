@@ -3,3 +3,29 @@
   background-color: #efefef;
   width: 80%;
 }
+
+.top-data-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.top-data-row {
+  border-bottom: 1px solid #bdbdbd;
+  align-items: center;
+  padding: 5px 20px;
+}
+
+.top-data-table {
+  display: flex;
+  flex-direction: row;
+}
+
+.hide {
+  color: #efefef;
+}
+
+.first_row_view {
+  display: flex;
+  width: 70%;
+  justify-content: space-around;
+}

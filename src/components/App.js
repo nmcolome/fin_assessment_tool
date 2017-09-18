@@ -9,7 +9,7 @@ class App extends Component {
   constructor() {
     super()
     this.state = {
-      view: 'dashboard'
+      view: 'top'
     }
     this.changeView = this.changeView.bind(this)
   }

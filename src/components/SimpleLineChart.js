@@ -1,5 +1,4 @@
 import React from 'react'
-import './styles/SimpleLineChart.css'
 import {LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend} from 'recharts'
 
 const SimpleLineChart = ({measurements, firstLine, secondLine}) => {
