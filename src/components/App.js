@@ -3,6 +3,7 @@ import './styles/App.css';
 import Sidebar from './Sidebar'
 import ProfitAndLoss from './ProfitAndLoss'
 import Dashboard from './Dashboard'
+import TopCustomers from './TopCustomers'
 
 class App extends Component {
   constructor() {
@@ -19,8 +20,8 @@ class App extends Component {
         return <ProfitAndLoss />
       case 'dashboard':
         return <Dashboard />
-  //     case 'top':
-  //       return <TopCustomers />
+      case 'top':
+        return <TopCustomers />
   //     case 'help':
   //       return <Help />
       default:
