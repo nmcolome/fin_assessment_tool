@@ -23,7 +23,7 @@ class ProfitAndLoss extends Component {
   }
 
   componentDidMount() {
-    fetch('http://warm-beyond-47329.herokuapp.com/api/v1/profit_and_loss')
+    fetch('https://warm-beyond-47329.herokuapp.com/api/v1/profit_and_loss')
     .then(response => {
       return response.json()
     })

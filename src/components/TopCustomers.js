@@ -16,7 +16,7 @@ class TopCustomers extends Component {
   }
 
   componentDidMount() {
-    fetch('http://warm-beyond-47329.herokuapp.com/api/v1/top_customers')
+    fetch('https://warm-beyond-47329.herokuapp.com/api/v1/top_customers')
     .then(response => {
       return response.json()
     })
