@@ -19,9 +19,9 @@ class Dashboard extends Component {
 
   path(string) {
     if(string === 'All') {
-      return 'http://localhost:3000/api/v1/dashboard'
+      return 'http://warm-beyond-47329.herokuapp.com/api/v1/dashboard'
     } else {
-      return `http://localhost:3000/api/v1/dashboard?region=${string}`
+      return `http://warm-beyond-47329.herokuapp.com/api/v1/dashboard?region=${string}`
     }
   }
 
@@ -60,7 +60,7 @@ class Dashboard extends Component {
   }
 
   componentDidMount() {
-    this.fetchStuff('http://localhost:3000/api/v1/dashboard')
+    this.fetchStuff('http://warm-beyond-47329.herokuapp.com/api/v1/dashboard')
   }
 
   handleOnChange(event) {
